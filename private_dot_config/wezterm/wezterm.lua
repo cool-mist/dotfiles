@@ -66,7 +66,7 @@ config.tab_bar_at_bottom = true
 
 wezterm.on('update-right-status', function(window, pane)
   window:set_left_status ''
-  window:set_right_status 'right'
+  window:set_right_status ''
 end)
 
 wezterm.on(
