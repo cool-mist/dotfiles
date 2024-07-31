@@ -1,0 +1,8 @@
+[user]
+  email = n.suryap@gmail.com
+  name = cool-mist
+[init]
+  defaultBranch = main
+[core]
+  editor = nvim
+
