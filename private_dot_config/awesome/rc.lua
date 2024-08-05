@@ -251,10 +251,10 @@ globalkeys = gears.table.join(
 
     -- Volume
     awful.key({ modkey }, "]",
-        function() awful.spawn.with_shell('pactl set-sink-volume (pactl get-default-sink) +5%') end,
+        function() awful.spawn.with_shell('pactl set-sink-volume `pactl get-default-sink` +5%') end,
         { description = "increase the volume", group = "volume" }),
     awful.key({ modkey }, "[",
-        function() awful.spawn.with_shell('pactl set-sink-volume (pactl get-default-sink) -5%') end,
+        function() awful.spawn.with_shell('pactl set-sink-volume `pactl get-default-sink` -5%') end,
         { description = "decrease the volume", group = "volume" }),
 
     -- Lock screen
@@ -500,4 +500,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell('picom')
 awful.spawn.with_shell('nitrogen --restore')
 awful.spawn.with_shell('polybar')
+awful.spawn.with_shell('xset s 3600 3600') -- set screen saver timeout to 1 hour
 -- awful.spawn.with_shell('pcloud')
