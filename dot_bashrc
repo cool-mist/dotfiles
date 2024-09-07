@@ -129,3 +129,5 @@ export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$PATH:$XDG_CONFIG_HOME
 #
  export CHIPS_LAB_HOME=$HOME/projects/homelab/services
+
+joke -c programming | cowsay -f tux

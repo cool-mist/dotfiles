@@ -48,6 +48,7 @@ local act = wezterm.action
 config.keys = {
   { key = '}',          mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = '|',          mods = 'SHIFT|CTRL', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = '"',          mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
   { key = 'T',          mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
   { key = 'z',          mods = 'CTRL',       action = act.TogglePaneZoomState },
   { key = 'w',          mods = 'CTRL',       action = act.CloseCurrentPane { confirm = true } },
