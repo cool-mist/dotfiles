@@ -257,11 +257,19 @@ globalkeys = gears.table.join(
         function() awful.spawn.with_shell('pactl set-sink-volume `pactl get-default-sink` -5%') end,
         { description = "decrease the volume", group = "volume" }),
 
+    -- Monitor change
+    awful.key({ modkey, "Control" }, "m",
+        function()
+          awful.spawn.spawn('/home/chips/.local/bin/chdp')
+          awesome.restart()
+        end,
+        { description = "change active monitor", group = "display" }),
+
     -- Lock screen
     awful.key({ modkey }, "q", function() awful.spawn.with_shell('dm-tool lock') end,
         { description = "lock", group = "power" }),
 
-			-- Polybar
+    -- Polybar
     awful.key({ modkey }, "p", function() awful.spawn.with_shell('polybar-msg cmd toggle') end,
         { description = "toggle polybar", group = "system" })
 )

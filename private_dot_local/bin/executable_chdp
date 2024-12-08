@@ -1,0 +1,16 @@
+#!/bin/bash
+small=HDMI-0
+big=DP-1
+
+small_used=`xrandr --listactivemonitors | grep "$small"`
+small_used_len=${#small_used}
+echo $small_used_len
+
+current=$small
+next=$big
+if [[ small_used_len -eq 0 ]]; then 
+    current=$big
+    next=$small
+fi
+
+xrandr --output "$current" --off --output "$next" --auto
