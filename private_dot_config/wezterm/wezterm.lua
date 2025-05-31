@@ -46,14 +46,27 @@ config.colors = {
 
 local act = wezterm.action
 config.keys = {
-  { key = '}',          mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = '|',          mods = 'SHIFT|CTRL', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-  { key = '"',          mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
-  { key = 'T',          mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-  { key = 'z',          mods = 'CTRL',       action = act.TogglePaneZoomState },
-  { key = 'w',          mods = 'CTRL',       action = act.CloseCurrentPane { confirm = true } },
-  { key = 'H',          mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Left' },
-  { key = 'L',          mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Right' },
+  { key = '}', mods = 'SHIFT|CTRL', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+  { key = '|', mods = 'SHIFT|CTRL', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+  { key = 'T', mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
+  { key = 'z', mods = 'CTRL',       action = act.TogglePaneZoomState },
+  { key = 'w', mods = 'CTRL',       action = act.CloseCurrentPane { confirm = true } },
+  {
+    key = 'H',
+    mods = 'SHIFT|CTRL',
+    action = act.Multiple {
+      act.ActivatePaneDirection 'Left',
+      act.SetPaneZoomState(true),
+    }
+  },
+  {
+    key = 'L',
+    mods = 'SHIFT|CTRL',
+    action = act.Multiple {
+      act.ActivatePaneDirection 'Right',
+      act.SetPaneZoomState(true),
+    }
+  },
   { key = 'K',          mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Up' },
   { key = 'J',          mods = 'SHIFT|CTRL', action = act.ActivatePaneDirection 'Down' },
   { key = 'LeftArrow',  mods = 'SHIFT|CTRL', action = act.AdjustPaneSize { 'Left', 5 } },
@@ -61,6 +74,7 @@ config.keys = {
   { key = 'UpArrow',    mods = 'SHIFT|CTRL', action = act.AdjustPaneSize { 'Up', 5 } },
   { key = 'DownArrow',  mods = 'SHIFT|CTRL', action = act.AdjustPaneSize { 'Down', 5 } },
 }
+
 config.use_fancy_tab_bar = false
 config.show_tabs_in_tab_bar = true
 config.show_new_tab_button_in_tab_bar = false
