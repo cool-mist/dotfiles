@@ -112,15 +112,14 @@ unset use_color sh
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 . "$HOME/.cargo/env"
-alias n='zk edit -i'
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
 export PATH=$PATH:$HOME/.local/bin
 
-# set -x GEM_HOME (ruby -e 'puts Gem.user_dir')
-# fish_add_path $GEM_HOME/bin
+export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
+export PATH=$PATH:$GEM_HOME/bin
 
 export CARGO_HOME=$HOME/.cargo
 export PATH=$PATH:$CARGO_HOME/bin
@@ -131,3 +130,7 @@ export PATH=$PATH:$XDG_CONFIG_HOME
 export CHIPS_LAB_HOME=$HOME/projects/homelab/services
 
 # joke -c programming | cowsay -f tux
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
