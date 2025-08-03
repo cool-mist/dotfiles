@@ -90,7 +90,7 @@ if ${use_color} ; then
 		PS1+='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 	fi
 
-	alias grep='grep --colour=auto'
+  alias grep='grep --colour=auto'
   alias ls='ls --color=auto'
 else
 	# show root@ when we don't have colors
